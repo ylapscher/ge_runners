@@ -1,6 +1,6 @@
-/*global WildRydes _config AmazonCognitoIdentity AWSCognito*/
+/*global ge_runners _config AmazonCognitoIdentity AWSCognito*/
 
-var WildRydes = window.WildRydes || {};
+var GeRunners = window.GeRunners || {};
 
 (function scopeWrapper($) {
     var signinUrl = 'signin.html';
@@ -12,24 +12,17 @@ var WildRydes = window.WildRydes || {};
 
     var userPool;
 
-    if (!(_config.cognito.userPoolId &&
-        _config.cognito.userPoolClientId &&
-        _config.cognito.region)) {
-        $('#noCognitoMessage').show();
-        return;
-    }
-
     userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
 
     if (typeof AWSCognito !== 'undefined') {
         AWSCognito.config.region = _config.cognito.region;
     }
 
-    WildRydes.signOut = function signOut() {
+    GeRunners.signOut = function signOut() {
         userPool.getCurrentUser().signOut();
     };
 
-    WildRydes.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
+    GeRunners.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
         var cognitoUser = userPool.getCurrentUser();
 
         if (cognitoUser) {
