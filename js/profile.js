@@ -6,11 +6,11 @@ var GeRunners = window.GeRunners || {};
         if (token) {
             authToken = token;
         } else {
-            window.location.href = '/signin.html';
+            window.location.href = '/profile.html';
         }
     }).catch(function handleTokenError(error) {
         alert(error);
-        window.location.href = '/signin.html';
+        window.location.href = '/profile.html';
     });
 
     // Register click handler for #request button
@@ -21,7 +21,6 @@ var GeRunners = window.GeRunners || {};
             alert("You have been signed out.");
             window.location = "signin.html";
         });
-        $(GeRunners.map).on('pickupChange', handlePickupChanged);
 
         GeRunners.authToken.then(function updateAuthMessage(token) {
             if (token) {
