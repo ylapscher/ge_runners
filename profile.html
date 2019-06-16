@@ -23,8 +23,11 @@
     <section class="form-wrap">
         <h1>Enter Race Info</h1>
         <form id="infoSubmit">
-            <input type="race type" id="raceTypeInput" placeholder="Race type" required>
-            <input type="time" id="timeInput" placeholder="Time" required>
+            <select name="race type" required>
+                <option value="5k">5 K</option>
+                <option value="10k">10 K</option>
+            </select>
+            <input type="text" id="timeInput" placeholder="Time" required>
             <input type="submit" value="Submit">
         </form>
     </section>
