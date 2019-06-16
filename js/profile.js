@@ -6,11 +6,11 @@ var GeRunners = window.GeRunners || {};
         if (token) {
             authToken = token;
         } else {
-            window.location.href = '/profile.html';
+            window.location.href = '/signin.html';
         }
     }).catch(function handleTokenError(error) {
         alert(error);
-        window.location.href = '/profile.html';
+        window.location.href = '/signing.html';
     });
 
     // Register click handler for #request button
@@ -37,5 +37,8 @@ var GeRunners = window.GeRunners || {};
     function handleSignin(event) {
         event.preventDefault();
         alert("hello");
+    }
+    function displayUpdate(text) {
+        $('#updates').append($('<li>' + text + '</li'));
     }
 }(jQuery));
