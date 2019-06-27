@@ -20,7 +20,13 @@ exports.handler = (event, context, callback) => {
     // This includes the username as well as other attributes.
     const username = event.requestContext.authorizer.claims['cognito:username'];
 
-    recordRace(raceId, username).then(() => { // , time, race).then(() => {
+    const requestBody = JSON.parse(event.body);
+
+    const time = requestBody.Time;
+
+    const race = requestBody.Race;
+
+    recordRace(raceId, username, time, race).then(() => {
         // You can use the callback function to provide a return value from your Node.js
         // Lambda functions. The first parameter is used for failed invocations. The
         // second parameter specifies the result data of the invocation.
@@ -31,8 +37,8 @@ exports.handler = (event, context, callback) => {
             statusCode: 201,
             body: JSON.stringify({
                 RaceId: raceId,
-                // Time: time,
-                // Race: race,
+                Time: time,
+                Race: race,
                 User: username,
             }),
             headers: {
@@ -52,12 +58,12 @@ exports.handler = (event, context, callback) => {
 
 function recordRace(raceId, username, time, race) {
     return ddb.put({
-        TableName: 'Rides',
+        TableName: 'personInfo',
         Item: {
             RaceId: raceId,
             Time: time,
             Race: race,
-            User: username,
+            personId: username,
             InputTime: new Date().toISOString(),
         },
     }).promise();

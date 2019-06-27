@@ -12,10 +12,40 @@ var GeRunners = window.GeRunners || {};
         alert(error);
         window.location.href = '/signing.html';
     });
+    function recordTime(time, race) {
+        $.ajax({
+            method: 'POST',
+            url: _config.api.invokeUrl + '/race',
+            headers: {
+                Authorization: authToken
+            },
+            data: JSON.stringify({
+                Time: time,
+                Race: race,
+            }),
+            contentType: 'application/json',
+            success: completeRequest,
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
+            }
+        });
+    }
+
+    function completeRequest(result) {
+        var time;
+        var race;
+        console.log('Response received from API: ', result);
+        time = result.Time;
+        race = result.Race;
+
+        console.log(time + " | " + race)
+    }
 
     // Register click handler for #request button
     $(function onDocReady() {
-        $('#infoSubmit').submit(handleSignin);
+        $('#infoSubmit').submit(writeDB);
         $('#signOut').click(function() {
             GeRunners.signOut();
             alert("You have been signed out.");
@@ -34,9 +64,11 @@ var GeRunners = window.GeRunners || {};
         }
     });
 
-    function handleSignin(event) {
+    function writeDB(event) {
         event.preventDefault();
-        alert("hello");
+        var time = $('#timeInput').val()
+        var race = $('#raceType').val()
+        recordTime(time, race);
     }
     function displayUpdate(text) {
         $('#updates').append($('<li>' + text + '</li'));
