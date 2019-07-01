@@ -60,10 +60,10 @@ function recordRace(raceId, username, time, race) {
     return ddb.put({
         TableName: 'personInfo',
         Item: {
-            RaceId: raceId,
+            User: username,
             Time: time,
             Race: race,
-            personId: username,
+            personId: raceId,
             InputTime: new Date().toISOString(),
         },
     }).promise();
