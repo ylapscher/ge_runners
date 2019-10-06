@@ -20,6 +20,8 @@ exports.handler = (event, context, callback) => {
     // This includes the username as well as other attributes.
     const username = event.requestContext.authorizer.claims['cognito:username'];
 
+    console.log(event.context.authorizer.claims.role)
+
     const requestBody = JSON.parse(event.body);
 
     const time = requestBody.Time;
