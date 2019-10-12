@@ -1,0 +1,23 @@
+table {
+    /*border: 1px solid black;*/
+    margin: 5%;
+    width: 90%;
+}
+
+td {
+    /*border: 1px solid black;*/
+}
+
+img {
+    display: block;
+    align-content: center;
+}
+
+p {
+    margin: 2%;
+}
+
+figcaption {
+    text-align: center;
+    vertical-align: text-bottom;
+}
