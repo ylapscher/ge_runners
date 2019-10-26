@@ -23,6 +23,10 @@ figcaption {
     color: black;
 }
 
+input {
+    display: block;
+    margin: 0 auto;
+}
 .circle {
     border: lightblue solid 5px;
     border-radius: 100%;
