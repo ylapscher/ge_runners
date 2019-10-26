@@ -15,7 +15,7 @@ input {
 * {
     box-sizing: border-box;
   }
-    
+
   /* The actualtimeline (the vertical ruler) */
   .timeline {
     position: relative;

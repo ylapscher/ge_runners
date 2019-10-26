@@ -36,12 +36,10 @@ img {
 
 table {
   margin: auto;
-  width: 90%;
 }
 
 td {
   text-align: center;
-  padding: 10px;
   align-content: center;
   display: inline-block;
 }
