@@ -45,6 +45,7 @@ img {
 
 .circle:hover {
   background-color: lightblue;
+  cursor: pointer;
 }
 
 table {

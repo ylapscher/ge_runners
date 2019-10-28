@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -64,26 +64,60 @@
 
     <div id="Upcoming Events" style="background-color: white;">
       <h1 class="display-4" style="text-align: center; background-color: white;">Upcoming Events</h1>        
-      <div class="circle three">
-        <a href="/upcomingEvent1.html">
+  
+      <div id="eventCircle1" class="circle three" onclick="makeBlock('UpcomingEvent1'); hide('eventCircle1'); hide('eventCircle2'); hide('eventCircle3')">
           <img src="/images/AZ_Marathon.png" style="padding: 12% 10% 0% 10%">
           <figcaption>USCAA Marathon, Half, and 5k</figcaption>          
-        </a>
       </div>
-      <div class="circle three">
-        <a href="">
+      
+      <div id="eventCircle2" class="circle three" onclick="makeBlock('UpcomingEvent2'); hide('eventCircle1'); hide('eventCircle2'); hide('eventCircle3')">
           <img src="/images/Penn_Relays.png" style="padding: 23% 4% 8% 4%">
           <figcaption>Corporate Relay at Penn Relays</figcaption>
-        </a>
       </div>
-      <div class="circle three">
-        <a href="">
+      
+      <div id="eventCircle3" class="circle three" onclick="makeBlock('UpcomingEvent3'); hide('eventCircle1'); hide('eventCircle2'); hide('eventCircle3')">
           <img src="" style="padding: 23% 4% 8% 4%">
           <figcaption>(null)</figcaption>
-        </a>
+      </div>
+
+      <div id="UpcomingEvent1" class="upcomingEvent" style="display: none"> 
+        <input type="button" value="X" style="float: right" onclick="hide('UpcomingEvent1'); makeInlineBlock('eventCircle1'); makeInlineBlock('eventCircle2'); makeInlineBlock('eventCircle3')">
+        <table>
+          <tr>
+              <td width="50%">
+                  <img src="images/AZ_Marathon.png" width="50%" style="float:left">
+              </td>
+              <td width="50%" style="text-align: left;">
+                  <p><b>What: </b>Marathon, Half Marathon and 5k event distances</p>
+                  <p><b>Where: </b>Pheonix, AZ</p>
+                  <p><b>When: </b>January 12th, 2020</p>
+              </td>
+          </tr>
+        </table>
+        <p><b>Scoring: </b>Points will be awarded based on each team's top 4 performers in each event. Conversions are applied to level the playing field across ages and genders so everyone has an equal chance of being a top scorer!</p>
+      </div>
+    
+      <div id="UpcomingEvent2" class="upcomingEvent" style="display: none"> 
+        <input type="button" value="X" style="float: right" onclick="hide('UpcomingEvent2'); makeInlineBlock('eventCircle1'); makeInlineBlock('eventCircle2'); makeInlineBlock('eventCircle3')">
+        <table>
+          <tr>
+              <td width="50%">
+                <img src="images/Penn_Relays.png" width="50%" style="float: left">
+              </td>
+              <td width="50%" style="text-align: left;">
+                  <p><b>What: </b></p>
+                  <p><b>Where: </b></p>
+                  <p><b>When: </b></p>
+              </td>
+          </tr>
+        </table>
+      </div>
+  
+      <div id="UpcomingEvent3" class="upcomingEvent" style="display: none"> 
+          <input type="button" value="X" style="float: right" onclick="hide('UpcomingEvent3'); makeInlineBlock('eventCircle1'); makeInlineBlock('eventCircle2'); makeInlineBlock('eventCircle3')">
       </div>
     </div>
-      
+  
     <div id="past events" style="background-color: lightblue;">
       <h1 class="display-4" style="text-align: center;">Past Events</h1>
       <div class="searchbar">

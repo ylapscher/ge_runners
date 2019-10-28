@@ -12,6 +12,17 @@ input {
     margin: 0 auto;
 }
 
+.upcomingEvent {
+  background-color: lightgrey;
+  border: lightblue solid 5px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+  display: none;
+}
+
 * {
     box-sizing: border-box;
   }
