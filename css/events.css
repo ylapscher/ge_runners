@@ -27,7 +27,7 @@ input {
     box-sizing: border-box;
   }
 
-  /* The actualtimeline (the vertical ruler) */
+  /* The actual timeline (the vertical ruler) */
   .timeline {
     position: relative;
     max-width: 100%;
@@ -41,7 +41,7 @@ input {
     width: 6px;
     background-color: white;
     top: 15px;
-    bottom: 0;
+    bottom: -600px;
     left: 50%;
     margin-left: -3px;
   }
